@@ -15,7 +15,7 @@ function formatDate(dateNow) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
 
   let weekday = daysOfWeek[day];
@@ -33,18 +33,18 @@ function formatDate(dateNow) {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
   let month = months[dateNow.getMonth()];
   console.log(month);
 
   let hour = dateNow.getHours();
-  if (hour < 9) {
+  if (hour < 10) {
     hour = `0` + hour;
   }
 
   let minute = dateNow.getMinutes();
-  if (minute < 9) {
+  if (minute < 10) {
     minute = `0` + minute;
   }
 
