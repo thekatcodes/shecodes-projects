@@ -77,10 +77,11 @@ function search(event) {
   axios.get(apiUrl).then(function (response) {
     console.log(displayIcon);
     displayCity.innerHTML = response.data.name;
-    displayDesc.innerHTML = response.data.weather[0].main;
+    displayDesc.innerHTML = response.data.weather[0].description;
     displayHumidity.innerHTML = Math.round(response.data.main.humidity);
-    displayWind.innerHTML = Math.round(response.data.wind.speed);
-    console.log("");
+    displayWind.innerHTML = Math.round(
+      (response.data.wind.speed * 3600) / 1000
+    );
     displayIcon.setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -106,9 +107,9 @@ function findPosition(position) {
   let displayIcon = document.querySelector("#icon");
   axios.get(apiUrl).then(function (pos) {
     displayPosition.innerHTML = pos.data.name;
-    displayDesc.innerHTML = pos.data.weather[0].main;
+    displayDesc.innerHTML = pos.data.weather[0].description;
     displayHumidity.innerHTML = Math.round(pos.data.main.humidity);
-    displayWind.innerHTML = Math.round(pos.data.wind.speed);
+    displayWind.innerHTML = Math.round((pos.data.wind.speed * 3600) / 1000);
     displayIcon.setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${pos.data.weather[0].icon}@2x.png`

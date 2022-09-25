@@ -109,6 +109,9 @@ form {
   font-weight: 100;
   font-family: "Hind", sans-serif;
 }
+#forecast-desc {
+  font-weight: bold;
+}
 .col-2 {
   display: flex;
   justify-content: center;
