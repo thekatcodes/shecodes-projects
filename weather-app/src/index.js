@@ -67,15 +67,24 @@ function search(event) {
   let city = searchInput;
   let apiKey = "e6c2364656962bdcb16bc352fc42569a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+
   let displayCity = document.querySelector(".city");
   let displayDesc = document.querySelector("#forecast-desc");
   let displayHumidity = document.querySelector(".humidity");
   let displayWind = document.querySelector(".wind");
+  let displayIcon = document.querySelector("#icon");
   axios.get(apiUrl).then(function (response) {
+    console.log(displayIcon);
     displayCity.innerHTML = response.data.name;
     displayDesc.innerHTML = response.data.weather[0].main;
     displayHumidity.innerHTML = Math.round(response.data.main.humidity);
     displayWind.innerHTML = Math.round(response.data.wind.speed);
+    console.log("");
+    displayIcon.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
   });
 }
 
@@ -94,11 +103,16 @@ function findPosition(position) {
   let displayDesc = document.querySelector("#forecast-desc");
   let displayHumidity = document.querySelector(".humidity");
   let displayWind = document.querySelector(".wind");
+  let displayIcon = document.querySelector("#icon");
   axios.get(apiUrl).then(function (pos) {
     displayPosition.innerHTML = pos.data.name;
     displayDesc.innerHTML = pos.data.weather[0].main;
     displayHumidity.innerHTML = Math.round(pos.data.main.humidity);
     displayWind.innerHTML = Math.round(pos.data.wind.speed);
+    displayIcon.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${pos.data.weather[0].icon}@2x.png`
+    );
   });
 }
 
