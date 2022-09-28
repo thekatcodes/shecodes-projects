@@ -92,7 +92,33 @@ function search(event) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+    getForecast(response.data.coord);
   });
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecast.innerHTML += `
+      <div class="card card-custom">
+        <i class="fa-solid fa-sun icon"></i>
+        <div class="card-body">
+          <div class="temp-wrapper">
+            <span class="temp temp-high">24</span>°/
+            <span class="temp temp-low">18</span>°
+          </div>
+          <h5 class="card-title">${day}</h5>
+        </div>
+       </div>`;
+  });
+}
+function getForecast(coordinates) {
+  let apiKey = "e6c2364656962bdcb16bc352fc42569a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let locationButton = document.querySelector(".current-location");
@@ -154,25 +180,5 @@ function convertTempC() {
 
 let tempC = document.querySelector(".link-c");
 tempC.addEventListener("click", convertTempC);
-
-function displayForecast() {
-  let forecast = document.querySelector("#forecast");
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecast.innerHTML += `
-      <div class="card card-custom">
-        <i class="fa-solid fa-sun icon"></i>
-        <div class="card-body">
-          <div class="temp-wrapper">
-            <span class="temp temp-high">24</span>°/
-            <span class="temp temp-low">18</span>°
-          </div>
-          <h5 class="card-title">${day}</h5>
-        </div>
-       </div>`;
-  });
-}
-
-displayForecast();
 
 search();
