@@ -112,6 +112,9 @@ form {
 #forecast-desc {
   font-weight: bold;
 }
+#forecast-desc:first-letter {
+  text-transform: capitalize;
+}
 .col-2 {
   display: flex;
   justify-content: center;
