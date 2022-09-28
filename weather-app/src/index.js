@@ -59,12 +59,16 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 function search(event) {
-  if (event.preventDefault) {
+  let searchInput, city;
+
+  if (event === undefined) {
+    city = "Vancouver";
+  } else {
     event.preventDefault();
+    searchInput = document.querySelector("#search-city").value;
+    city = searchInput;
   }
 
-  let searchInput = document.querySelector("#search-city").value;
-  let city = searchInput;
   let apiKey = "e6c2364656962bdcb16bc352fc42569a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
@@ -170,3 +174,5 @@ function displayForecast() {
 }
 
 displayForecast();
+
+search();
