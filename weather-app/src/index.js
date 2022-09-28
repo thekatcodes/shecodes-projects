@@ -150,3 +150,23 @@ function convertTempC() {
 
 let tempC = document.querySelector(".link-c");
 tempC.addEventListener("click", convertTempC);
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecast.innerHTML += `
+      <div class="card card-custom">
+        <i class="fa-solid fa-sun icon"></i>
+        <div class="card-body">
+          <div class="temp-wrapper">
+            <span class="temp temp-high">24</span>°/
+            <span class="temp temp-low">18</span>°
+          </div>
+          <h5 class="card-title">${day}</h5>
+        </div>
+       </div>`;
+  });
+}
+
+displayForecast();
