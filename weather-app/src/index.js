@@ -70,6 +70,7 @@ function search(event) {
   console.log(apiUrl);
 
   let displayCity = document.querySelector(".city");
+  let displayTemp = document.querySelector(".temp");
   let displayDesc = document.querySelector("#forecast-desc");
   let displayHumidity = document.querySelector(".humidity");
   let displayWind = document.querySelector(".wind");
@@ -77,6 +78,7 @@ function search(event) {
   axios.get(apiUrl).then(function (response) {
     console.log(displayIcon);
     displayCity.innerHTML = response.data.name;
+    displayTemp.innerHTML = Math.round(response.data.main.temp);
     displayDesc.innerHTML = response.data.weather[0].description;
     displayHumidity.innerHTML = Math.round(response.data.main.humidity);
     displayWind.innerHTML = Math.round(
@@ -101,12 +103,14 @@ function findPosition(position) {
   let apiKey = "e6c2364656962bdcb16bc352fc42569a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   let displayPosition = document.querySelector(".city");
+  let displayTemp = document.querySelector(".temp");
   let displayDesc = document.querySelector("#forecast-desc");
   let displayHumidity = document.querySelector(".humidity");
   let displayWind = document.querySelector(".wind");
   let displayIcon = document.querySelector("#icon");
   axios.get(apiUrl).then(function (pos) {
     displayPosition.innerHTML = pos.data.name;
+    displayTemp.innerHTML = Math.round(pos.data.main.temp);
     displayDesc.innerHTML = pos.data.weather[0].description;
     displayHumidity.innerHTML = Math.round(pos.data.main.humidity);
     displayWind.innerHTML = Math.round((pos.data.wind.speed * 3600) / 1000);
