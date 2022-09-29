@@ -120,6 +120,7 @@ form {
   justify-content: center;
   align-items: center;
 }
+
 .card-deck {
   display: flex;
   justify-content: space-around;
@@ -131,15 +132,18 @@ form {
   transition: transform 0.25s;
   width: 60x;
   height: 170px;
+  align-items: center;
 }
 .card.card-custom:hover {
   transform: scale(1.1);
 }
-.icon {
+#forecast-body {
+  padding: 0%;
+}
+.weather-icon {
   text-align: center;
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 22px;
-  color: #f7b801;
 }
 .card-title {
   text-align: center;
@@ -150,7 +154,7 @@ form {
   text-align: center;
   font-size: 17px;
   font-family: "Hind", sans-serif;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .temp.temp-high {
   font-weight: bold;

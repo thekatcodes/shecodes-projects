@@ -114,8 +114,8 @@ function displayForecast(response) {
       <div class="card card-custom">
       <img src="http://openweathermap.org/img/wn/${
         forecastDay.weather[0].icon
-      }@2x.png" alt="" id="icon" class="weather-icon" />
-        <div class="card-body">
+      }@2x.png" alt="" id="icon" class="weather-icon" width="60" height="60" />
+        <div class="card-body" id="forecast-body">
         <div class="temp-wrapper">
         <span class="temp temp-high">${Math.round(
           forecastDay.temp.max
