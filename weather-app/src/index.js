@@ -107,6 +107,7 @@ function displayForecast(response) {
   console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = "";
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
