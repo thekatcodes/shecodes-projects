@@ -16,17 +16,18 @@
     html {
       background-color: white;
     }
-    body {
-      background: rgb(174, 128, 105);
-      background: rgb(195, 156, 136);
+    .content {
       background: linear-gradient(
         360deg,
         rgba(195, 156, 136, 1) 0%,
         rgba(255, 245, 237, 1) 45%
       );
       border-radius: 30px;
-      margin: 25%;
+      margin-left: 660px;
+      margin-right: 660px;
+      margin-top: 50px;
       padding: 70px;
+      max-width: 1000px;
     }
     h1 {
       color: #250902;
@@ -99,42 +100,59 @@
       color: rgb(174, 128, 105);
       background-color: white;
     }
+    .code-source-link {
+      display: block;
+      margin: 5px auto;
+      max-width: 1150px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
   </style>
   <body>
-    <h1>
-      bubble
-      <br />
-      tea
-    </h1>
-    <h2><em>aka "boba"</em></h2>
-    <hr />
-    <div class="wrapper">
-      <div>
-        <p>
-          <strong>Bubble tea</strong> or boba is a Taiwanese drink featuring a
-          tea base with <span class="ingredients">milk</span>,
-          <span class="ingredients">tapioca pearls</span>, and
-          <span class="ingredients">different toppings</span>, making it an
-          interactive drink and a sweet snack! The classic bubble tea is creamy
-          and sweet with the essence of tea. The pearls are chewy with a tiny
-          bit of mild sweetness. Bubble tea is a comforting and refreshing drink
-          in any kind of setting.
-        </p>
-        <a
-          href="https://www.worldteanews.com/Features/future-bubble-tea-insights-whos-leading-industry"
-          class="reading"
-          target="_blank"
-        >
-          Read More
-        </a>
+    <div class="content">
+      <h1>
+        bubble
         <br />
+        tea
+      </h1>
+      <h2><em>aka "boba"</em></h2>
+      <hr />
+      <div class="wrapper">
+        <div>
+          <p>
+            <strong>Bubble tea</strong> or boba is a Taiwanese drink featuring a
+            tea base with <span class="ingredients">milk</span>,
+            <span class="ingredients">tapioca pearls</span>, and
+            <span class="ingredients">different toppings</span>, making it an
+            interactive drink and a sweet snack! The classic bubble tea is
+            creamy and sweet with the essence of tea. The pearls are chewy with
+            a tiny bit of mild sweetness. Bubble tea is a comforting and
+            refreshing drink in any kind of setting.
+          </p>
+          <a
+            href="https://www.worldteanews.com/Features/future-bubble-tea-insights-whos-leading-industry"
+            class="reading"
+            target="_blank"
+          >
+            Read More
+          </a>
+          <br />
+        </div>
+        <img
+          src="https://i.pinimg.com/originals/b5/33/71/b53371884e4b1e5e128dfabe7dae4891.png"
+          alt="bubble-tea-illustration"
+        />
       </div>
-      <img
-        src="https://i.pinimg.com/originals/b5/33/71/b53371884e4b1e5e128dfabe7dae4891.png"
-        alt="bubble-tea-illustration"
-      />
+      <div class="button-container"><button>Sippy Sip</button></div>
     </div>
-    <div class="button-container"><button>Sippy Sip</button></div>
+    <div class="code-source-link">
+      <a
+        href="https://github.com/thekatcodes/shecodes-projects/tree/main/weather-app"
+        target="_blank"
+      >
+        Open-source code
+      </a>
+      by Katie Liu
+    </div>
     <script>
       function sip() {
         let name = prompt("What is your name?");
